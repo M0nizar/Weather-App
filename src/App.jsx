@@ -1,5 +1,7 @@
+import AppLayout from "./components/layout/AppLayout";
+
 function App() {
-  return <div>hello</div>;
+  return <AppLayout />;
 }
 
 export default App;
