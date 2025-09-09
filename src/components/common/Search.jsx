@@ -1,9 +1,11 @@
+import styles from "./Search.module.css";
+
 function Search() {
   return (
-    <form action="" className="searchBar">
-      <div className="search-input">
+    <form action="" className={styles.searchBar}>
+      <div className={styles.searchInput}>
         <input type="search" placeholder="Search for a place..." />
-        <div className="search-Icon">
+        <div className={styles.searchIcon}>
           <img src="/icons/Search-Icon.svg" alt="search icon" />
         </div>
       </div>

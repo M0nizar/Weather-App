@@ -1,10 +1,13 @@
+import DropDownUnits from "./DropDownUnits";
+import styles from "./NavBar.module.css";
+
 function Navbar() {
   return (
-    <div className="navBar">
-      <div className="logo">
+    <div className={styles.navBar}>
+      <div>
         <img src="/images/Logo.svg" alt="logo image" />
       </div>
-      <div className="dropdown">units</div>
+      <DropDownUnits />
     </div>
   );
 }

@@ -1,0 +1,55 @@
+.generalSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: var(--Spacing-24);
+}
+
+.generalSectionCard {
+  padding: var(--Spacing-80) var(--Spacing-24);
+  border-radius: var(--Radius-20);
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-image: url("/images/background-image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.generalSectionCardLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--Spacing-12);
+}
+
+.generalSectionCardLeft p:first-child {
+  font: var(--text-preset4);
+  color: var(--Neutral-0);
+}
+
+.generalSectionCardLeft p:last-child {
+  font: var(--text-preset7);
+  color: var(--Neutral-0);
+}
+
+.generalSectionCardRight {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-20);
+}
+
+.generalSectionCardRight p {
+  font: var(--text-preset1);
+  color: var(--Neutral-0);
+}
+
+.generalSectionStatusList {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-24);
+  width: 100%;
+}

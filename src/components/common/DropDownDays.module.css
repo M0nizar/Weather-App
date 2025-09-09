@@ -1,0 +1,44 @@
+.dropDownDays {
+  position: relative;
+}
+
+.dropDownDaysButton {
+  background-color: var(--Neutral-600);
+  display: flex;
+  align-items: center;
+  padding: var(--Spacing-8) var(--Spacing-16);
+  gap: var(--Spacing-12);
+  border-radius: var(--Radius-8);
+  cursor: pointer;
+}
+
+.dropDownDaysButton p {
+  font: var(--text-preset8);
+}
+
+.dropDownDaysContent {
+  position: absolute;
+  background-color: var(--Neutral-800);
+  right: 0;
+  padding: var(--Spacing-8);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--Spacing-4);
+  width: 220px;
+  border-radius: var(--Radius-12);
+  border: 1px solid var(--Neutral-600);
+  top: calc(100% + var(--Spacing-10));
+  display: none;
+}
+
+.dropDownDaysContent button {
+  color: var(--Neutral-0);
+  width: 100%;
+  padding: var(--Spacing-10) var(--Spacing-8);
+  font: var(--text-preset8);
+  background-color: var(--Neutral-800);
+  border: none;
+  text-align: left;
+  border-radius: var(--Radius-8);
+}

@@ -1,18 +1,15 @@
+import DropDownDays from "./DropDownDays";
 import HourlyStatusCard from "./HourlyStatusCard";
+import styles from "./HourlySection.module.css";
 
 function HourlySection() {
   return (
-    <div className="hourly-section">
-      <div className="filtering">
+    <div className={styles.hourlySection}>
+      <div className={styles.filtering}>
         <p>Hourly forecast</p>
-        <div
-          className="dropdown"
-          style={{ backgroundColor: "var(--Neutral-600)" }}
-        >
-          Tuesday
-        </div>
+        <DropDownDays />
       </div>
-      <div className="hourly-list">
+      <div className={styles.hourlyList}>
         <HourlyStatusCard />
         <HourlyStatusCard />
         <HourlyStatusCard />

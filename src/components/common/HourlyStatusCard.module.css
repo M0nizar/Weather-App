@@ -1,0 +1,31 @@
+.hourlyStatusCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--Spacing-10) var(--Spacing-16) var(--Spacing-10)
+    var(--Spacing-12);
+  background-color: var(--Neutral-700);
+  border-radius: var(--Radius-8);
+}
+
+.hourlyStatusCardLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-4);
+}
+
+.hourlyStatusCardLeftImage img {
+  width: 40px;
+  height: 40px;
+}
+
+.hourlyStatusCardLeft p {
+  color: var(--Neutral-0);
+  font: var(--text-preset6);
+}
+
+.hourlyStatusCardRight p {
+  color: var(--Neutral-0);
+  font: var(--text-preset8);
+}

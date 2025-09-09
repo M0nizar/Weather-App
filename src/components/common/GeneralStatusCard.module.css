@@ -1,0 +1,19 @@
+.generalStatusCard {
+  flex: 1;
+  gap: var(--Spacing-24);
+  padding: var(--Spacing-20);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--Neutral-800);
+  border-radius: var(--Radius-12);
+}
+
+.generalStatusCard p:first-child {
+  font: var(--text-preset7);
+  color: var(--Neutral-0);
+}
+.generalStatusCard p:last-child {
+  font: var(--text-preset3);
+  color: var(--Neutral-0);
+}

@@ -1,14 +1,16 @@
+import styles from "./HourlyStatusCard.module.css";
+
 function HourlyStatusCard() {
   return (
-    <div className="hourlyStatus-card">
-      <div className="hourlyStatus-card-left">
-        <div className="hourlyStatus-card-left-image">
+    <div className={styles.hourlyStatusCard}>
+      <div className={styles.hourlyStatusCardLeft}>
+        <div className={styles.hourlyStatusCardLeftImage}>
           <img src="/images/Partly-Cloudy.svg" alt="" />
         </div>
         <p>3 PM</p>
       </div>
-      <div className="hourly-status-card-right">
-        <p>20</p>
+      <div className={styles.hourlyStatusCardRight}>
+        <p>20°</p>
       </div>
     </div>
   );
