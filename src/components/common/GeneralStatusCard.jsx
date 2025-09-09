@@ -1,9 +1,9 @@
 import styles from "./generalStatusCard.module.css";
-function GeneralStatusCard() {
+function GeneralStatusCard({ title, value }) {
   return (
     <div className={styles.generalStatusCard}>
-      <p>Feels Like</p>
-      <p>18°</p>
+      <p>{title}</p>
+      <p>{value}</p>
     </div>
   );
 }

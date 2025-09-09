@@ -1,6 +1,6 @@
 import styles from "./DailyStatusCard.module.css";
 
-function DailyStatusCard() {
+function DailyStatusCard({ maximum, minimum }) {
   return (
     <div className={styles.DailyStatusCard}>
       <p>Tue</p>
@@ -8,8 +8,8 @@ function DailyStatusCard() {
         <img src="/images/Rain.svg" alt="" />
       </div>
       <div className={styles.DailyStatusCardRow}>
-        <p>20°</p>
-        <p>14°</p>
+        <p>{`${minimum}°`}</p>
+        <p>{`${maximum}°`}</p>
       </div>
     </div>
   );
