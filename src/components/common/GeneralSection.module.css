@@ -44,7 +44,7 @@
 .generalSectionCardRight {
   display: flex;
   align-items: center;
-  gap: var(--Spacing-20);
+  gap: var(--Spacing-8);
 }
 
 .generalSectionCardRight p {
@@ -57,4 +57,21 @@
   align-items: center;
   gap: var(--Spacing-24);
   width: 100%;
+}
+
+@media (max-width: 960px) {
+  .generalSectionCard {
+    flex-direction: column;
+    gap: var(--Spacing-24);
+    padding: var(--Spacing-64) var(--Spacing-24);
+  }
+  .generalSectionStatusList {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 540px) {
+  .generalSectionCardRight p {
+    font: var(--text-preset2);
+  }
 }

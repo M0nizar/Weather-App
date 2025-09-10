@@ -1,5 +1,4 @@
 .DailyStatusCard {
-  font: var(--text-preset7);
   color: var(--Neutral-0);
   flex: 1;
   display: flex;
@@ -10,10 +9,21 @@
   padding: var(--Spacing-16) var(--Spacing-10);
   border-radius: var(--Spacing-12);
 }
+.DailyStatusCard > p {
+  font: var(--text-preset7);
+}
 
 .DailyStatusCardRow {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+}
+
+.DailyStatusCardRow p {
+  font: var(--text-preset8);
+}
+
+.DailyStatusCardRow p:last-child {
+  color: var(--Neutral-200);
 }

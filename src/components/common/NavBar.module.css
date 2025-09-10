@@ -1,6 +1,18 @@
 .navBar {
+  z-index: 3;
   width: 100%;
+  position: sticky;
+  padding: var(--Spacing-48) 0 var(--Spacing-4) 0;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--Neutral-900);
+}
+
+@media (max-width: 375px) {
+  .logo img {
+    width: 150px;
+    height: auto;
+  }
 }

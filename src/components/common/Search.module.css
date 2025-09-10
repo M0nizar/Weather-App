@@ -54,3 +54,12 @@
   transform: translateY(-50%);
   left: var(--Spacing-24);
 }
+
+@media (max-width: 375px) {
+  .searchBar {
+    flex-direction: column;
+  }
+  .searchBar button {
+    width: 100%;
+  }
+}

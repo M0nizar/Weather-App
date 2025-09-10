@@ -7,6 +7,7 @@
   justify-content: space-between;
   background-color: var(--Neutral-800);
   border-radius: var(--Radius-12);
+  min-width: 165px;
 }
 
 .generalStatusCard p:first-child {

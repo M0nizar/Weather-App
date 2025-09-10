@@ -76,3 +76,9 @@
 .selected {
   background-color: var(--Neutral-700);
 }
+
+@media (max-width: 375px) {
+  .dropDownUnitsButton {
+    font: var(--text-preset9);
+  }
+}

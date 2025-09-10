@@ -16,7 +16,7 @@
   align-items: center;
 }
 
-.filtering p {
+.filtering > p {
   color: var(--Neutral-0);
   font: var(--text-preset5);
 }

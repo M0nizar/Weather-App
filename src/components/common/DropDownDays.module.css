@@ -12,8 +12,9 @@
   cursor: pointer;
 }
 
-.dropDownDaysButton p {
+.dropDownDaysButton > p {
   font: var(--text-preset8);
+  color: var(--Neutral-0);
 }
 
 .dropDownDaysContent {

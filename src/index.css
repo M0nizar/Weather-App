@@ -75,15 +75,35 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: var(--Spacing-48) var(--Spacing-112);
+  margin: 0 var(--Spacing-140) var(--Spacing-48) var(--Spacing-140);
   gap: var(--Spacing-64);
 }
 .title {
   font: var(--text-preset2);
+  margin-top: calc(-1 * var(--Spacing-4));
   color: var(--Neutral-0);
   text-align: center;
 }
 
 .selected {
   background-color: var(--Neutral-700);
+}
+
+/* ---------------------------------------------- */
+@media (max-width: 1540px) {
+  .container {
+    margin: 0 var(--Spacing-96) var(--Spacing-48) var(--Spacing-96);
+  }
+}
+
+@media (max-width: 1450px) {
+  .container {
+    margin: 0 var(--Spacing-56) var(--Spacing-48) var(--Spacing-56);
+  }
+}
+
+@media (max-width: 1360px) {
+  .container {
+    margin: 0 var(--Spacing-32) var(--Spacing-48) var(--Spacing-32);
+  }
 }
