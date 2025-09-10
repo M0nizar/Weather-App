@@ -20,6 +20,11 @@
   background-size: cover;
 }
 
+.generalSectionCardRightImage img {
+  height: 120px;
+  width: 120px;
+}
+
 .generalSectionCardLeft {
   display: flex;
   flex-direction: column;

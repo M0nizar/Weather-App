@@ -33,7 +33,7 @@
   border: 1px solid var(--Neutral-600);
   width: 220px;
   z-index: 2;
-  display: none;
+  /* display: none; */
 }
 
 .subtitle {
@@ -70,6 +70,9 @@
 
 .dropDownUnitsContentButton:focus {
   cursor: pointer;
+  box-shadow: 0 0 0 2px var(--Neutral-800), 0 0 0 4px var(--Neutral-0);
+}
+
+.selected {
   background-color: var(--Neutral-700);
-  box-shadow: 0 0 0 3px var(--Neutral-0), 0 0 0 2px var(--Neutral-800);
 }

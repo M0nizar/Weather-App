@@ -83,3 +83,7 @@ body {
   color: var(--Neutral-0);
   text-align: center;
 }
+
+.selected {
+  background-color: var(--Neutral-700);
+}
