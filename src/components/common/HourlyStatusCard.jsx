@@ -1,16 +1,25 @@
+import { setUnitString, weatherIcon } from "../../context/WeatherContext";
 import styles from "./HourlyStatusCard.module.css";
 
-function HourlyStatusCard() {
+function HourlyStatusCard({ time, temperature, weather_code, unit }) {
+  function transformTime(time) {
+    if (Number(time) > 12) {
+      return time + " PM";
+    } else {
+      return time + " AM";
+    }
+  }
+
   return (
     <div className={styles.hourlyStatusCard}>
       <div className={styles.hourlyStatusCardLeft}>
         <div className={styles.hourlyStatusCardLeftImage}>
-          <img src="/images/Partly-Cloudy.svg" alt="" />
+          <img src={weatherIcon(weather_code)} alt="" />
         </div>
-        <p>3 PM</p>
+        <p>{transformTime(time.slice(11, 13))}</p>
       </div>
       <div className={styles.hourlyStatusCardRight}>
-        <p>20°</p>
+        <p>{`${temperature}${setUnitString(unit)}`}</p>
       </div>
     </div>
   );
