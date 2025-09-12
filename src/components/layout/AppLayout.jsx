@@ -6,10 +6,11 @@ import SthngWentWrong from "../common/SthngWentWrong";
 
 function AppLayout() {
   const { error } = useContext(WeatherContext);
+  console.log(error);
   return (
     <div className="container">
       <Navbar />
-      {error === "something went wrong" ? (
+      {error !== "City not found. Please try another city." && error ? (
         <SthngWentWrong />
       ) : (
         <>

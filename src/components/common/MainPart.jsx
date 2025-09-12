@@ -12,8 +12,8 @@ function MainPart() {
   return (
     <div className={styles.mainPartContainer}>
       <Search />
-      {(error === "City not found. Please try another city." || !weatherData) &&
-      !isLoading ? (
+      {error === "City not found. Please try another city." ||
+      (!weatherData && !isLoading) ? (
         <NoSearchResult />
       ) : (
         <div className={styles.dataSection}>

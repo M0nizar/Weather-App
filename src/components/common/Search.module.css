@@ -55,6 +55,30 @@
   left: var(--Spacing-24);
 }
 
+.recentSearches {
+  z-index: 4;
+  padding: var(--Spacing-8);
+  gap: var(--Spacing-4);
+  position: absolute;
+  top: 100%;
+  background-color: var(--Neutral-800);
+  border-color: var(--Neutral-700);
+  margin-top: var(--Spacing-10);
+  border-radius: var(--Radius-12);
+  width: 100%;
+}
+.recentSearchOption {
+  padding: var(--Spacing-10) var(--Spacing-8);
+  color: var(--Neutral-0);
+  width: 100%;
+  cursor: pointer;
+  border-radius: var(--Radius-8);
+  font: var(--text-preset8);
+}
+.recentSearchOption:hover {
+  background-color: var(--Neutral-600);
+}
+
 @media (max-width: 375px) {
   .searchBar {
     flex-direction: column;

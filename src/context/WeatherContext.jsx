@@ -9,6 +9,7 @@ export function WeatherProvider({ children }) {
   const [theCountry, setTheCountry] = useState("Algeria");
   const [error, setError] = useState(null);
 
+  const [recentSearchedList, setRecentSearchedList] = useState([]);
   const [tempiratureUnit, setTempiratureUnit] = useState("celsius");
   const [windSpeedUnit, setWindSpeedUnit] = useState("kmh");
   const [percipitationUnit, setPercipitationUnit] = useState("mm");
@@ -27,6 +28,8 @@ export function WeatherProvider({ children }) {
       if (!cityData.results || cityData.results.length === 0) {
         setError("City not found. Please try another city.");
         setWeatherData(null);
+        setIsLoading(false);
+        return;
       }
       const { latitude, longitude, country } = cityData.results[0];
       setTheCountry(country);
@@ -37,9 +40,10 @@ export function WeatherProvider({ children }) {
       );
       const data = await responseWeatherData.json();
       setWeatherData(data);
+      setError(null);
     } catch (er) {
       setWeatherData(null);
-      setError("something went wrong");
+      setError(er.message);
     } finally {
       setIsLoading(false);
     }
@@ -66,6 +70,8 @@ export function WeatherProvider({ children }) {
         error,
         setError,
         fetching,
+        recentSearchedList,
+        setRecentSearchedList,
       }}
     >
       {children}
