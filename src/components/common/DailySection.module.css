@@ -16,6 +16,13 @@
   gap: var(--Spacing-16);
 }
 
+.skeltonCard {
+  flex: 1;
+  height: 187.2px;
+  background-color: var(--Neutral-800);
+  border-radius: var(--Spacing-12);
+}
+
 @media (max-width: 960px) {
   .dailySectionList {
     flex-wrap: wrap;

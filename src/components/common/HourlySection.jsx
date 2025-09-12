@@ -2,14 +2,17 @@ import DropDownDays from "./DropDownDays";
 import HourlyStatusCard from "./HourlyStatusCard";
 import styles from "./HourlySection.module.css";
 import { useContext, useState } from "react";
-import { formatDate, WeatherContext } from "../../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
+import { formatDate } from "../../utils/usedFunctions";
+import { days } from "../../constants/data";
 
 function HourlySection() {
-  const { weatherData, tempiratureUnit } = useContext(WeatherContext);
-  const [selectedDay, setSelectedDay] = useState("Monday");
-
+  const { weatherData, tempiratureUnit, isLoading } =
+    useContext(WeatherContext);
+  const currentDate = new Date();
+  const [selectedDay, setSelectedDay] = useState(days[currentDate.getDay()]);
   const hourly = weatherData?.hourly;
-  console.log(hourly);
+
   function getDaysHours() {
     const days = {};
     let item = [];
@@ -27,10 +30,8 @@ function HourlySection() {
 
     return days;
   }
-  console.log(getDaysHours()[selectedDay]);
 
   function calculateTheSevenHours() {
-    const currentDate = new Date();
     const currentHour = currentDate.getHours();
     if (24 - currentHour > 8) {
       return currentHour;
@@ -38,7 +39,6 @@ function HourlySection() {
       return currentHour - (8 - (24 - currentHour));
     }
   }
-  console.log(calculateTheSevenHours());
 
   return (
     <div className={styles.hourlySection}>
@@ -50,21 +50,26 @@ function HourlySection() {
         />
       </div>
       <div className={styles.hourlyList}>
-        {getDaysHours()
-          [selectedDay]?.slice(
-            calculateTheSevenHours(),
-            calculateTheSevenHours() + 8
-          )
-          .map((hour) => {
-            return (
-              <HourlyStatusCard
-                time={hour.time}
-                weather_code={hour.weather_code}
-                temperature={hour.temperature}
-                unit={tempiratureUnit}
-              />
-            );
-          })}
+        {isLoading
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className={styles.skeltonCard}></div>
+            ))
+          : getDaysHours()
+              [selectedDay]?.slice(
+                calculateTheSevenHours(),
+                calculateTheSevenHours() + 8
+              )
+              .map((hour, index) => {
+                return (
+                  <HourlyStatusCard
+                    key={index}
+                    time={hour.time}
+                    weather_code={hour.weather_code}
+                    temperature={hour.temperature}
+                    unit={tempiratureUnit}
+                  />
+                );
+              })}
       </div>
     </div>
   );

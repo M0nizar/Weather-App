@@ -1,16 +1,22 @@
 import { useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
 import MainPart from "../common/MainPart";
 import Navbar from "../common/Navbar";
+import { WeatherContext } from "../../context/WeatherContext";
+import SthngWentWrong from "../common/SthngWentWrong";
 
 function AppLayout() {
-  const { weatherData } = useContext(WeatherContext);
-  console.log(weatherData);
+  const { error } = useContext(WeatherContext);
   return (
     <div className="container">
       <Navbar />
-      <p className="title">How’s the sky looking today?</p>
-      <MainPart />
+      {error === "something went wrong" ? (
+        <SthngWentWrong />
+      ) : (
+        <>
+          <p className="title">How’s the sky looking today?</p>
+          <MainPart />
+        </>
+      )}
     </div>
   );
 }

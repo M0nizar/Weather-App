@@ -1,4 +1,4 @@
-import { setUnitString, weatherIcon } from "../../context/WeatherContext";
+import { setUnitString, weatherIcon } from "../../utils/usedFunctions";
 import styles from "./HourlyStatusCard.module.css";
 
 function HourlyStatusCard({ time, temperature, weather_code, unit }) {

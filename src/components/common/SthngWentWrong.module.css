@@ -1,0 +1,27 @@
+.smthngWrong {
+  display: flex;
+  flex-direction: column;
+  gap: var(--Spacing-24);
+  align-items: center;
+  color: var(--Neutral-0);
+  padding-top: var(--Spacing-40);
+}
+
+.smthngWrong > p:first-of-type {
+  font: var(--text-preset2);
+}
+
+.smthngWrong > p:last-of-type {
+  font: var(--text-preset6);
+}
+
+.retryButton {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-10);
+  padding: var(--Spacing-12) var(--Spacing-16);
+  background-color: var(--Neutral-800);
+  border-radius: var(--Radius-8);
+  font: var(--text-preset8);
+  cursor: pointer;
+}

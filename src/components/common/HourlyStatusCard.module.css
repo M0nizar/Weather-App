@@ -7,6 +7,7 @@
     var(--Spacing-12);
   background-color: var(--Neutral-700);
   border-radius: var(--Radius-8);
+  height: 64px;
 }
 
 .hourlyStatusCardLeft {

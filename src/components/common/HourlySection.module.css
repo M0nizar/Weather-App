@@ -29,3 +29,10 @@
   gap: var(--Spacing-16);
   gap: var(--Spacing-16);
 }
+
+.skeltonCard {
+  height: 64px;
+  width: 100%;
+  background-color: var(--Neutral-700);
+  border-radius: var(--Radius-8);
+}
