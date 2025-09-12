@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
+import { WeatherContext } from "../../../context/WeatherContext";
 import styles from "./DailyStatusCard.module.css";
-import { setUnitString } from "../../utils/usedFunctions";
+import { setUnitString } from "../../../utils/usedFunctions";
 
 function DailyStatusCard({ maximum, minimum, dayName, weatherStatusIcon }) {
   const { tempiratureUnit } = useContext(WeatherContext);

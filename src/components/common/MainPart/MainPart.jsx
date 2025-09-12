@@ -1,11 +1,11 @@
-import DailySection from "./DailySection";
-import GeneralSection from "./GeneralSection";
-import HourlySection from "./HourlySection";
-import Search from "./Search";
+import DailySection from "../DailySection/DailySection";
+import GeneralSection from "../GeneralSection/GeneralSection";
+import HourlySection from "../HourlySection/HourlySection";
+import Search from "../SearchBar/Search";
 import styles from "./MainPart.module.css";
 import { useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
-import NoSearchResult from "./NoSearchResult";
+import { WeatherContext } from "../../../context/WeatherContext";
+import NoSearchResult from "../NoSearchResult/NoSearchResult";
 
 function MainPart() {
   const { error, weatherData, isLoading } = useContext(WeatherContext);

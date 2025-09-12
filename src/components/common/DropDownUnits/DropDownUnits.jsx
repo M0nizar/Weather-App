@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styles from "./DropDownUnits.module.css";
-import { WeatherContext } from "../../context/WeatherContext";
+import { WeatherContext } from "../../../context/WeatherContext";
 
 function DropDownUnits() {
   const {

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styles from "./Search.module.css";
-import { WeatherContext } from "../../context/WeatherContext";
+import { WeatherContext } from "../../../context/WeatherContext";
 
 function Search() {
   const { setTheCity, recentSearchedList, setRecentSearchedList } =
@@ -28,7 +28,7 @@ function Search() {
             setEnteredCity(uppercaseTheFirstLetter(e.target.value))
           }
           onClick={() => {
-            setIsOpen(!isOpen);
+            if (recentSearchedList.length > 0) setIsOpen(!isOpen);
           }}
         />
         <div className={styles.searchIcon}>

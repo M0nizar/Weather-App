@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styles from "./SthngWentWrong.module.css";
-import { WeatherContext } from "../../context/WeatherContext";
+import { WeatherContext } from "../../../context/WeatherContext";
 function SthngWentWrong() {
   const { fetching, setError, error } = useContext(WeatherContext);
   console.log("this is the error", error);

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "./DropDownDays.module.css";
-import { WeatherContext } from "../../context/WeatherContext";
-import { days } from "../../constants/data";
+import { WeatherContext } from "../../../context/WeatherContext";
+import { days } from "../../../constants/data";
 
 function DropDownDays({ selectedDay, setSelectedDay }) {
   const [isOpen, setIsOpen] = useState(false);

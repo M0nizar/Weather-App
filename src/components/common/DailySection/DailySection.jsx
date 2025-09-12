@@ -1,8 +1,8 @@
-import DailyStatusCard from "./DailyStatusCard";
+import DailyStatusCard from "../DailyStatusCard/DailyStatusCard";
 import styles from "./DailySection.module.css";
 import { useContext } from "react";
-import { WeatherContext } from "../../context/WeatherContext";
-import { formatDate, weatherIcon } from "../../utils/usedFunctions";
+import { WeatherContext } from "../../../context/WeatherContext";
+import { formatDate, weatherIcon } from "../../../utils/usedFunctions";
 
 function DailySection() {
   const { weatherData, isLoading } = useContext(WeatherContext);

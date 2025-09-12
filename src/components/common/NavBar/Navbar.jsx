@@ -1,4 +1,4 @@
-import DropDownUnits from "./DropDownUnits";
+import DropDownUnits from "../DropDownUnits/DropDownUnits";
 import styles from "./NavBar.module.css";
 
 function Navbar() {
