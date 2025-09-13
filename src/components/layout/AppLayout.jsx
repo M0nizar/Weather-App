@@ -6,7 +6,6 @@ import SthngWentWrong from "../common/SomethingWentWrong/SthngWentWrong";
 
 function AppLayout() {
   const { error } = useContext(WeatherContext);
-  console.log(error);
   return (
     <div className="container">
       <Navbar />

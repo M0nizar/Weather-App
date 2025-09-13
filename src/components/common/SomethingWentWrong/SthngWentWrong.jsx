@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import styles from "./SthngWentWrong.module.css";
 import { WeatherContext } from "../../../context/WeatherContext";
+
+
 function SthngWentWrong() {
-  const { fetching, setError, error } = useContext(WeatherContext);
-  console.log("this is the error", error);
+  const { fetching, setError } = useContext(WeatherContext);
   return (
     <div className={styles.smthngWrong}>
       <div className={styles.wrongImage}>

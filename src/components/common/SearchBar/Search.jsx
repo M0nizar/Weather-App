@@ -8,6 +8,9 @@ function Search() {
   const [isOpen, setIsOpen] = useState(false);
   const [enteredCity, setEnteredCity] = useState("");
   const longerThen4 = recentSearchedList.length >= 4;
+  const displayedRecentSearchedList = longerThen4
+    ? recentSearchedList.slice(0, 4)
+    : recentSearchedList;
 
   function handleSubmitting(e) {
     e.preventDefault();
@@ -19,7 +22,7 @@ function Search() {
   }
 
   return (
-    <form action="" className={styles.searchBar} onSubmit={handleSubmitting}>
+    <form className={styles.searchBar} onSubmit={handleSubmitting}>
       <div className={styles.searchInput}>
         <input
           type="search"
@@ -39,29 +42,17 @@ function Search() {
           className={styles.recentSearches}
           style={isOpen ? {} : { display: "none" }}
         >
-          {longerThen4
-            ? recentSearchedList.slice(0, 4).map((element, i) => (
-                <div
-                  key={i}
-                  className={styles.recentSearchOption}
-                  onClick={() => {
-                    setTheCity(element);
-                  }}
-                >
-                  {element}
-                </div>
-              ))
-            : recentSearchedList.map((element, i) => (
-                <div
-                  key={i}
-                  className={styles.recentSearchOption}
-                  onClick={() => {
-                    setTheCity(element);
-                  }}
-                >
-                  {element}
-                </div>
-              ))}
+          {displayedRecentSearchedList.map((element, i) => (
+            <div
+              key={i}
+              className={styles.recentSearchOption}
+              onClick={() => {
+                setTheCity(element);
+              }}
+            >
+              {element}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -71,7 +62,7 @@ function Search() {
           if (enteredCity !== "") {
             setTheCity(enteredCity);
             setRecentSearchedList((prev) => {
-              return [...prev, enteredCity];
+              return [enteredCity, ...prev];
             });
           }
           setIsOpen(false);

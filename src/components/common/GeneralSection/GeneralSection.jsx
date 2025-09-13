@@ -19,10 +19,33 @@ function GeneralSection() {
     theCity,
     isLoading,
   } = useContext(WeatherContext);
-  // console.log(theCity, theCountry, weatherData);
-
-  const currentDaySting = weatherData?.current.time.slice(0, 10);
+  const generalStats = [
+    {
+      title: "Feels Like",
+      value: `${weatherData?.current?.temperature_2m}${setUnitString(
+        tempiratureUnit
+      )}`,
+    },
+    {
+      title: "Humidity",
+      value: `${weatherData?.current?.relative_humidity_2m} %`,
+    },
+    {
+      title: "Wind",
+      value: `${weatherData?.current?.wind_speed_10m} ${setUnitString(
+        windSpeedUnit
+      )}`,
+    },
+    {
+      title: "Precipitation",
+      value: `${weatherData?.current?.precipitation} ${setUnitString(
+        percipitationUnit
+      ).slice(0, 2)}`,
+    },
+  ];
+  const currentDaySting = weatherData?.current?.time?.slice(0, 10);
   const currentDayData = formatDate(currentDaySting);
+
   return (
     <div className={styles.generalSection}>
       {isLoading ? (
@@ -58,32 +81,15 @@ function GeneralSection() {
       )}
 
       <div className={styles.generalSectionStatusList}>
-        <GeneralStatusCard
-          key={"Feels Like"}
-          title={"Feels Like"}
-          value={`${weatherData?.current.temperature_2m}${setUnitString(
-            tempiratureUnit
-          )}`}
-        />
-        <GeneralStatusCard
-          key={"Humidity"}
-          title={"Humidity"}
-          value={`${weatherData?.current.relative_humidity_2m} %`}
-        />
-        <GeneralStatusCard
-          key={"Wind"}
-          title={"Wind"}
-          value={`${weatherData?.current.wind_speed_10m} ${setUnitString(
-            windSpeedUnit
-          )}`}
-        />
-        <GeneralStatusCard
-          key={"Precipitation"}
-          title={"Precipitation"}
-          value={`${weatherData?.current.precipitation} ${setUnitString(
-            percipitationUnit
-          ).slice(0, 2)}`}
-        />
+        {generalStats.map((generalStatusCard) => {
+          return (
+            <GeneralStatusCard
+              key={generalStatusCard.title}
+              title={generalStatusCard.title}
+              value={generalStatusCard.value}
+            />
+          );
+        })}
       </div>
     </div>
   );
