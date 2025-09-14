@@ -1,4 +1,4 @@
-import AppLayout from "./components/layout/AppLayout";
+import AppLayout from "./components/AppLayout/AppLayout";
 import { WeatherProvider } from "./context/WeatherContext";
 
 function App() {

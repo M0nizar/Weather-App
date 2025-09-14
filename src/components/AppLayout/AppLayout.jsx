@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import MainPart from "../common/MainPart/MainPart";
-import Navbar from "../common/NavBar/Navbar";
+import MainPart from "../MainPart/MainPart";
+import Navbar from "../NavBar/Navbar";
 import { WeatherContext } from "../../context/WeatherContext";
-import SthngWentWrong from "../common/SomethingWentWrong/SthngWentWrong";
+import SthngWentWrong from "../SomethingWentWrong/SthngWentWrong";
 
 function AppLayout() {
   const { error } = useContext(WeatherContext);

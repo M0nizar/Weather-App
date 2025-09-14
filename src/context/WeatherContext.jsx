@@ -5,7 +5,7 @@ export const WeatherContext = createContext();
 export function WeatherProvider({ children }) {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [theCity, setTheCity] = useState("Algiers");
+  const [theCity, setTheCity] = useState("");
   const [theCountry, setTheCountry] = useState("Algeria");
   const [error, setError] = useState(null);
 
@@ -14,6 +14,32 @@ export function WeatherProvider({ children }) {
   const [windSpeedUnit, setWindSpeedUnit] = useState("kmh");
   const [percipitationUnit, setPercipitationUnit] = useState("mm");
 
+  async function fetchingCurrent() {
+    if (!navigator.geolocation) {
+      setError("Geolocation not supported.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        try {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+          );
+          const data = await response.json();
+          const currentCity = data.address.state;
+          const currentCountry = data.address.country;
+          setTheCity(currentCity);
+          setTheCountry(currentCountry);
+        } catch (e) {
+          setError("Failed to detect current city.");
+        }
+      },
+      (err) => setError(err.message),
+      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+    );
+  }
   async function fetching() {
     try {
       setIsLoading(true);
@@ -31,6 +57,7 @@ export function WeatherProvider({ children }) {
         setIsLoading(false);
         return;
       }
+
       const { latitude, longitude, country } = cityData.results[0];
       setTheCountry(country);
 
@@ -48,6 +75,10 @@ export function WeatherProvider({ children }) {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    fetchingCurrent();
+  }, []);
 
   useEffect(() => {
     fetching();

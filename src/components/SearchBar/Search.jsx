@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styles from "./Search.module.css";
-import { WeatherContext } from "../../../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
 
 function Search() {
   const { setTheCity, recentSearchedList, setRecentSearchedList } =

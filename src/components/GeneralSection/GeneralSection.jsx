@@ -1,13 +1,13 @@
 import GeneralStatusCard from "../GeneralSectionCard/GeneralStatusCard";
 import styles from "./GeneralSection.module.css";
 import { useContext } from "react";
-import { WeatherContext } from "../../../context/WeatherContext";
+import { WeatherContext } from "../../context/WeatherContext";
 import LoadingDots from "../LoadingDots/LoadingDots";
 import {
   formatDate,
   setUnitString,
   weatherIcon,
-} from "../../../utils/usedFunctions";
+} from "../../utils/usedFunctions";
 
 function GeneralSection() {
   const {

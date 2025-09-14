@@ -2,9 +2,9 @@ import DropDownDays from "../DropDowndays/DropDownDays";
 import HourlyStatusCard from "../HourlyStatusCard/HourlyStatusCard";
 import styles from "./HourlySection.module.css";
 import { useContext, useState } from "react";
-import { WeatherContext } from "../../../context/WeatherContext";
-import { formatDate } from "../../../utils/usedFunctions";
-import { days } from "../../../constants/data";
+import { WeatherContext } from "../../context/WeatherContext";
+import { formatDate } from "../../utils/usedFunctions";
+import { days } from "../../constants/data";
 
 function HourlySection() {
   const { weatherData, tempiratureUnit, isLoading } =
