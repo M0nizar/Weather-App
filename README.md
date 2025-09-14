@@ -1,5 +1,5 @@
 # MY README FILE FOR THE WEATHER APPLICATION CHALLENGE
----
+
 ## TABLE OF CONTENT
 
   <ol>
@@ -13,7 +13,7 @@
      <a href="#project-structure">Project Structure</a>
     </li>
      <li>
-      <a href="#features">Feature</a>
+      <a href="#key-features-and-implementation">Key Features And Implementation</a>
     </li>
        <li>
      <a href="#what-i-learned-from-this-project">What I Learned From This Project</a>
@@ -38,7 +38,7 @@ These are the technologies used in this project :
  
 
 ## Project Structure
-i used vite as the developement envirement so it already give some structure but my personnel strucrure was like that :
+I used Vite as the development environment, so it already gives some structure, but my personal structure was like this. It’s ideal because it makes the app easier to scale and extend, and it also helps collaborators and other developers clearly understand what’s going on.
 ```
 weather-web-application
 ├── 📂 public
@@ -78,8 +78,19 @@ weather-web-application
 └── eslint.config.js
 ```
 
-## Features
+## Key Features And Implementation
+### Styling
+- i focused on modular styling to keep it scalable and maintanable and i used css variables for consistensy and easy customization.
+### State Management
+- I used context provider to manage globale states like weatherData, units, errors .....
+### Used APIs
+- For this project, I used the following APIs:
+  - **Geocoding API**: Converts a city name into geographic coordinates (latitude and longitude).
+  - **Open-Meteo API**: Fetches weather data (current, hourly, and daily forecast) for the given coordinates.
+  - **Nominatim Reverse Geocoding API**: Converts given coordinates back into a city name (and also provides other location details).
 These are the feature included in the project :
+
+### Implemented Features
 <ul>
   <li>searching for weather statistics for any city.</li>
   <li>view current weather statistics.</li>
@@ -95,7 +106,11 @@ These are the feature included in the project :
 
 
 ## What I learned From This Project
+- In this project, I focused on making myself more comfortable with building scalable, maintainable, and extensible applications by using an understandable folder structure, writing clean and clear code, creating reusable components, applying modular styling, and using global CSS variables.
+- i also practiced my fetching and api calls, error handeling and state management.
 
+---
+- I really appreciate this opportunity and would love any suggestions or advice that could help me further improve my skills and deepen my understanding.
 
 
 
