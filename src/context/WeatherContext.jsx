@@ -37,7 +37,7 @@ export function WeatherProvider({ children }) {
             country: currentCountry,
           });
         } catch (e) {
-          setError("Failed to detect current city.");
+          setError(e.message || "Failed to detect current city.");
         }
       },
       (err) => setError(err.message),
