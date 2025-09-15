@@ -21,11 +21,11 @@ function DropDownUnits() {
         onClick={() => setIsOpen(!isOpen)}
       >
         <div>
-          <img src="/icons/Units-Icon.svg" alt="" />
+          <img src="icons/Units-Icon.svg" alt="" />
         </div>
         <p>Units</p>
         <div>
-          <img src="/icons/Units-Dropdown-Icon.svg" alt="" />
+          <img src="icons/Units-Dropdown-Icon.svg" alt="" />
         </div>
       </div>
 

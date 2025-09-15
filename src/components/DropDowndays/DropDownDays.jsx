@@ -15,7 +15,7 @@ function DropDownDays({ selectedDay, setSelectedDay }) {
       >
         <p>{isLoading ? "_" : selectedDay}</p>
         <div>
-          <img src="/icons/Units-Dropdown-Icon.svg" alt="" />
+          <img src="icons/Units-Dropdown-Icon.svg" alt="" />
         </div>
       </div>
 
