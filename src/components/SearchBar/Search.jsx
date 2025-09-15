@@ -29,7 +29,7 @@ function Search() {
           }
         />
         <div className={styles.searchIcon}>
-          <img src="/icons/Search-Icon.svg" alt="search icon" />
+          <img src="icons/Search-Icon.svg" alt="search icon" />
         </div>
 
         <div
