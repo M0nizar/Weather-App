@@ -18,6 +18,9 @@
        <li>
      <a href="#what-i-learned-from-this-project">What I Learned From This Project</a>
     </li>
+    <li>
+     <a href="#how-users-search-for-their-desired-city">How Users Search for Their Desired City</a>
+    </li>
   </ol>
 
 
@@ -103,6 +106,15 @@ These are the feature included in the project :
   <li>view responsive layout</li>
   <li>see hover and focus for interactive elements</li>
 </ul>
+
+### How Users Search for Their Desired City
+- The user should first enter the name of their desired city, then click on Search (this will fetch multiple cities matching the entered name).
+- After that, some suggested cities along with their country will be displayed to the user.
+- Now the user can select their desired city.
+
+
+> **Remark** :
+> It is better to use the Places API from Google Maps, which provides the ability to display autocompleted city names. However, I don’t have a credit card to get the API key.
 
 
 ## What I learned From This Project
