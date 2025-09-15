@@ -3,7 +3,8 @@ import styles from "./SthngWentWrong.module.css";
 import { WeatherContext } from "../../context/WeatherContext";
 
 function SthngWentWrong() {
-  const { fetching, setError } = useContext(WeatherContext);
+  const { fetchingSelectedCity, setError, selectedCity } =
+    useContext(WeatherContext);
   return (
     <div className={styles.smthngWrong}>
       <div className={styles.wrongImage}>
@@ -18,7 +19,7 @@ function SthngWentWrong() {
         className={styles.retryButton}
         onClick={() => {
           setError(null);
-          fetching();
+          fetchingSelectedCity(selectedCity);
         }}
       >
         <img src="/icons/retry.svg" alt="" />

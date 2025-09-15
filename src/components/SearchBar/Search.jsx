@@ -1,24 +1,21 @@
 import { useContext, useState } from "react";
 import styles from "./Search.module.css";
 import { WeatherContext } from "../../context/WeatherContext";
+import { uppercaseTheFirstLetter } from "../../utils/usedFunctions";
 
 function Search() {
-  const { setTheCity, recentSearchedList, setRecentSearchedList } =
+  const { searchSuggestions, setEnteredCityGlobal, setSelectedCity } =
     useContext(WeatherContext);
   const [isOpen, setIsOpen] = useState(false);
   const [enteredCity, setEnteredCity] = useState("");
-  const longerThen4 = recentSearchedList.length >= 4;
-  const displayedRecentSearchedList = longerThen4
-    ? recentSearchedList.slice(0, 4)
-    : recentSearchedList;
+
+  const longerThen5 = searchSuggestions.length >= 5;
+  const displayedSuggestedSearchedList = longerThen5
+    ? searchSuggestions.slice(0, 5)
+    : searchSuggestions;
 
   function handleSubmitting(e) {
     e.preventDefault();
-  }
-
-  function uppercaseTheFirstLetter(word) {
-    const lowercase = word.toLowerCase();
-    return lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
   }
 
   return (
@@ -30,9 +27,6 @@ function Search() {
           onChange={(e) =>
             setEnteredCity(uppercaseTheFirstLetter(e.target.value))
           }
-          onClick={() => {
-            if (recentSearchedList.length > 0) setIsOpen(!isOpen);
-          }}
         />
         <div className={styles.searchIcon}>
           <img src="/icons/Search-Icon.svg" alt="search icon" />
@@ -42,15 +36,17 @@ function Search() {
           className={styles.recentSearches}
           style={isOpen ? {} : { display: "none" }}
         >
-          {displayedRecentSearchedList.map((element, i) => (
+          {displayedSuggestedSearchedList.map((element, i) => (
             <div
               key={i}
               className={styles.recentSearchOption}
               onClick={() => {
-                setTheCity(element);
+                const { name, country, latitude, longitude } = element;
+                setSelectedCity({ name, country, latitude, longitude });
+                setIsOpen(false);
               }}
             >
-              {element}
+              {element.name}, {element.country}
             </div>
           ))}
         </div>
@@ -60,12 +56,9 @@ function Search() {
         type="submit"
         onClick={() => {
           if (enteredCity !== "") {
-            setTheCity(enteredCity);
-            setRecentSearchedList((prev) => {
-              return [enteredCity, ...prev];
-            });
+            setEnteredCityGlobal(enteredCity);
           }
-          setIsOpen(false);
+          if (searchSuggestions.length !== 0) setIsOpen(true);
         }}
       >
         Search

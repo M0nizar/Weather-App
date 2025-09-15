@@ -15,8 +15,7 @@ function GeneralSection() {
     tempiratureUnit,
     windSpeedUnit,
     percipitationUnit,
-    theCountry,
-    theCity,
+    selectedCity,
     isLoading,
   } = useContext(WeatherContext);
   const generalStats = [
@@ -59,7 +58,7 @@ function GeneralSection() {
         <div className={styles.generalSectionCard}>
           <div className={styles.generalSectionCardLeft}>
             <p>
-              {theCity}, {theCountry}
+              {selectedCity.name}, {selectedCity.country}
             </p>
             <p>
               {currentDayData[0]}, {currentDayData[1]?.slice(0, 3)}{" "}

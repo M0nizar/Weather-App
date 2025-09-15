@@ -5,11 +5,11 @@ export const WeatherContext = createContext();
 export function WeatherProvider({ children }) {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [theCity, setTheCity] = useState("");
-  const [theCountry, setTheCountry] = useState("Algeria");
   const [error, setError] = useState(null);
+  const [searchSuggestions, setSearchSuggetions] = useState([]);
+  const [selectedCity, setSelectedCity] = useState({});
+  const [enteredCityGlobal, setEnteredCityGlobal] = useState("");
 
-  const [recentSearchedList, setRecentSearchedList] = useState([]);
   const [tempiratureUnit, setTempiratureUnit] = useState("celsius");
   const [windSpeedUnit, setWindSpeedUnit] = useState("kmh");
   const [percipitationUnit, setPercipitationUnit] = useState("mm");
@@ -30,8 +30,12 @@ export function WeatherProvider({ children }) {
           const data = await response.json();
           const currentCity = data.address.state;
           const currentCountry = data.address.country;
-          setTheCity(currentCity);
-          setTheCountry(currentCountry);
+          setSelectedCity({
+            name: currentCity,
+            latitude,
+            longitude,
+            country: currentCountry,
+          });
         } catch (e) {
           setError("Failed to detect current city.");
         }
@@ -40,26 +44,40 @@ export function WeatherProvider({ children }) {
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
     );
   }
-  async function fetching() {
-    try {
-      setIsLoading(true);
 
+  async function fetchingSuggestedCities() {
+    try {
+      if (enteredCityGlobal.length === 0 || !enteredCityGlobal) return;
       // fetching for the city coordinates
       const responseCityCoordinates = await fetch(
-        `https://geocoding-api.open-meteo.com/v1/search?name=${theCity}&count=1`
+        `https://geocoding-api.open-meteo.com/v1/search?name=${enteredCityGlobal}&count=5`
       );
 
       // city no found
       const cityData = await responseCityCoordinates.json();
+      console.log(cityData);
       if (!cityData.results || cityData.results.length === 0) {
         setError("City not found. Please try another city.");
-        setWeatherData(null);
-        setIsLoading(false);
+        setSearchSuggetions([]);
         return;
       }
+      setError(null);
+      setSearchSuggetions(cityData.results);
+    } catch (er) {
+      setError(er.message);
+      setSearchSuggetions([]);
+    }
+  }
 
-      const { latitude, longitude, country } = cityData.results[0];
-      setTheCountry(country);
+  async function fetchingSelectedCity(cityData) {
+    if (!cityData || !cityData.latitude || !cityData.longitude) {
+      setError("Invalid city data provided.");
+      return;
+    }
+    try {
+      setIsLoading(true);
+      setError(null);
+      const { latitude, longitude } = cityData;
 
       // fetching for the weather data
       const responseWeatherData = await fetch(
@@ -67,7 +85,6 @@ export function WeatherProvider({ children }) {
       );
       const data = await responseWeatherData.json();
       setWeatherData(data);
-      setError(null);
     } catch (er) {
       setWeatherData(null);
       setError(er.message);
@@ -81,28 +98,35 @@ export function WeatherProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    fetching();
-  }, [theCity, tempiratureUnit, windSpeedUnit, percipitationUnit]);
+    fetchingSuggestedCities();
+  }, [enteredCityGlobal]);
+
+  useEffect(() => {
+    if (selectedCity?.latitude && selectedCity?.longitude) {
+      fetchingSelectedCity(selectedCity);
+    }
+  }, [selectedCity, tempiratureUnit, windSpeedUnit, percipitationUnit]);
 
   return (
     <WeatherContext.Provider
       value={{
         isLoading,
         weatherData,
-        theCity,
         tempiratureUnit,
         windSpeedUnit,
         percipitationUnit,
-        theCountry,
-        setTheCity,
+        error,
+        searchSuggestions,
+        selectedCity,
+        enteredCityGlobal,
+        setError,
+        fetchingSelectedCity,
+        setSearchSuggetions,
+        setSelectedCity,
         setWindSpeedUnit,
         setTempiratureUnit,
         setPercipitationUnit,
-        error,
-        setError,
-        fetching,
-        recentSearchedList,
-        setRecentSearchedList,
+        setEnteredCityGlobal,
       }}
     >
       {children}

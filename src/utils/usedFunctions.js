@@ -34,3 +34,8 @@ export function formatDate(dateString) {
 
   return [dayName, monthName];
 }
+
+export function uppercaseTheFirstLetter(word) {
+  const lowercase = word.toLowerCase();
+  return lowercase.charAt(0).toUpperCase() + lowercase.slice(1);
+}
