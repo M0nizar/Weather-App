@@ -9,6 +9,7 @@ export function WeatherProvider({ children }) {
   const [searchSuggestions, setSearchSuggetions] = useState([]);
   const [selectedCity, setSelectedCity] = useState({});
   const [enteredCityGlobal, setEnteredCityGlobal] = useState("");
+  const [denied, setDenied] = useState(false);
 
   const [tempiratureUnit, setTempiratureUnit] = useState("celsius");
   const [windSpeedUnit, setWindSpeedUnit] = useState("kmh");
@@ -17,6 +18,7 @@ export function WeatherProvider({ children }) {
   async function fetchingCurrent() {
     if (!navigator.geolocation) {
       setError("Geolocation not supported.");
+      setDenied(true);
       return;
     }
 
@@ -38,9 +40,13 @@ export function WeatherProvider({ children }) {
           });
         } catch (e) {
           setError(e.message || "Failed to detect current city.");
+          setDenied(true);
         }
       },
-      (err) => setError(err.message),
+      (err) => {
+        setError(err.message);
+        setDenied(true);
+      },
       { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
     );
   }
@@ -119,6 +125,8 @@ export function WeatherProvider({ children }) {
         searchSuggestions,
         selectedCity,
         enteredCityGlobal,
+        denied,
+        setDenied,
         setError,
         fetchingSelectedCity,
         setSearchSuggetions,

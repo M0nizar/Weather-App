@@ -8,7 +8,7 @@ function SthngWentWrong() {
   return (
     <div className={styles.smthngWrong}>
       <div className={styles.wrongImage}>
-        <img src="/icons/wrong.svg" alt="" />
+        <img src="icons/wrong.svg" alt="" />
       </div>
       <p>Something went wrong</p>
       <p>
@@ -22,7 +22,7 @@ function SthngWentWrong() {
           fetchingSelectedCity(selectedCity);
         }}
       >
-        <img src="/icons/retry.svg" alt="" />
+        <img src="icons/retry.svg" alt="" />
         <p>Retry</p>
       </div>
     </div>

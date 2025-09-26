@@ -5,16 +5,22 @@ import Search from "../SearchBar/Search";
 import styles from "./MainPart.module.css";
 import { useContext } from "react";
 import { WeatherContext } from "../../context/WeatherContext";
-import NoSearchResult from "../NoSearchResult/NoSearchResult";
+import DisplayedText from "../DisplayedText/DisplayedText";
 
 function MainPart() {
-  const { error, weatherData, isLoading } = useContext(WeatherContext);
+  const { error, weatherData, isLoading, denied } = useContext(WeatherContext);
   return (
     <div className={styles.mainPartContainer}>
       <Search />
-      {error === "City not found. Please try another city." ||
-      (!weatherData && !isLoading) ? (
-        <NoSearchResult />
+      {denied ? (
+        <DisplayedText
+          text={
+            "You just denied or forget to accept out access to your location, please start searching to see result."
+          }
+        />
+      ) : error === "City not found. Please try another city." ||
+        (!weatherData && !isLoading) ? (
+        <DisplayedText text={"No search result found!"} />
       ) : (
         <div className={styles.dataSection}>
           <div className={styles.left}>
